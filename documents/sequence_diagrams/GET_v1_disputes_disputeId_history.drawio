@@ -1,0 +1,73 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram name="GET /v1/disputes/{disputeId}/history" id="GET_v1_disputes_disputeId_history">
+    <mxGraphModel dx="1382" dy="894" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="client" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;html=1;" value="Client" vertex="1">
+          <mxGeometry height="600" width="120" x="50" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="controller" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;html=1;" value="DisputeController" vertex="1">
+          <mxGeometry height="600" width="160" x="250" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="service" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;html=1;" value="DisputeService" vertex="1">
+          <mxGeometry height="600" width="150" x="520" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="repo" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;html=1;" value="DisputeHistoryRepository" vertex="1">
+          <mxGeometry height="600" width="190" x="780" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" edge="1" parent="1" style="endArrow=block;html=1;" value="GET /v1/disputes/{disputeId}/history">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="109.5" y="163" as="sourcePoint" />
+            <mxPoint x="329.5" y="163" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" edge="1" parent="1" style="endArrow=block;html=1;" value="getHistory(disputeId)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="329.5" y="202" as="sourcePoint" />
+            <mxPoint x="594.5" y="202" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m3" edge="1" parent="1" style="endArrow=block;html=1;" value="findByDisputeId(disputeId)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="594.5" y="239" as="sourcePoint" />
+            <mxPoint x="874.5" y="239" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m5" edge="1" parent="1" style="endArrow=open;html=1;" value="List&lt;DisputeHistory&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="874.5" y="394" as="sourcePoint" />
+            <mxPoint x="594.5" y="394" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m6" edge="1" parent="1" style="endArrow=open;html=1;" value="HistoryResponse">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="594.5" y="427" as="sourcePoint" />
+            <mxPoint x="329.5" y="427" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m7" edge="1" parent="1" style="endArrow=open;html=1;" value="200 OK + JSON">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="329.5" y="461" as="sourcePoint" />
+            <mxPoint x="109.5" y="461" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7qYnVgQ_W1Y28zXojV3f-2" edge="1" parent="1" style="endArrow=classic;html=1;rounded=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="955" y="280" />
+              <mxPoint x="955" y="360" />
+            </Array>
+            <mxPoint x="875" y="280" as="sourcePoint" />
+            <mxPoint x="875" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7qYnVgQ_W1Y28zXojV3f-3" connectable="0" parent="7qYnVgQ_W1Y28zXojV3f-2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="SELECT * FROM dispute_history WHERE dispute_id = ?" vertex="1">
+          <mxGeometry relative="1" x="-0.0528" y="-5" as="geometry">
+            <mxPoint x="45" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,74 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram name="GET /v1/support/disputes/view" id="GET_v1_support_disputes_view">
+    <mxGraphModel dx="2482" dy="894" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="client" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;html=1;" value="Support Client" vertex="1">
+          <mxGeometry height="620" width="130" x="-101" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="controller" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;html=1;" value="SupportDisputeController" vertex="1">
+          <mxGeometry height="620" width="190" x="260" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="service" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;html=1;" value="DisputeService" vertex="1">
+          <mxGeometry height="620" width="150" x="560" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="repo" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;html=1;" value="DisputeRepository" vertex="1">
+          <mxGeometry height="620" width="170" x="800" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" edge="1" parent="1" source="client" style="endArrow=block;html=1;" value="GET /v1/support/disputes/view?status=&amp;from=&amp;to=&amp;page=&amp;size=">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="104.5" y="161" as="sourcePoint" />
+            <mxPoint x="354.5" y="161" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" edge="1" parent="1" style="endArrow=block;html=1;" value="findSupportDisputesView(filters, pageable)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="354.5" y="197" as="sourcePoint" />
+            <mxPoint x="634.5" y="197" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m3" edge="1" parent="1" style="endArrow=block;html=1;" value="queryWithSupportFilters(criteria)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="634.5" y="236" as="sourcePoint" />
+            <mxPoint x="884.5" y="236" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m5" edge="1" parent="1" style="endArrow=open;html=1;" value="Page&lt;SupportDisputeView&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="884.5" y="365" as="sourcePoint" />
+            <mxPoint x="634.5" y="365" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m6" edge="1" parent="1" style="endArrow=open;html=1;" value="SupportDisputeViewResponse">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="634.5" y="382" as="sourcePoint" />
+            <mxPoint x="354.5" y="382" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m7" edge="1" parent="1" style="endArrow=open;html=1;" value="200 OK + JSON">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="354.5" y="402" as="sourcePoint" />
+            <mxPoint x="104.5" y="402" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TRkGbet5wE2ZogvoPlGV-1" edge="1" parent="1" style="endArrow=classic;html=1;rounded=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="970" y="260" />
+              <mxPoint x="970" y="340" />
+            </Array>
+            <mxPoint x="890" y="260" as="sourcePoint" />
+            <mxPoint x="890" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TRkGbet5wE2ZogvoPlGV-2" connectable="0" parent="TRkGbet5wE2ZogvoPlGV-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="SELECT * FROM disputes WHERE support filters..." vertex="1">
+          <mxGeometry relative="1" x="-0.0528" y="-5" as="geometry">
+            <mxPoint x="45" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

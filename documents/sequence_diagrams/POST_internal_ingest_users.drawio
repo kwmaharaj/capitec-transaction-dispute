@@ -1,0 +1,68 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram name="POST /internal/ingest/users" id="POST_internal_ingest_users">
+    <mxGraphModel dx="1382" dy="894" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="client" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;" value="Internal System" vertex="1">
+          <mxGeometry height="640" width="150" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="controller" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;" value="InternalIngestController" vertex="1">
+          <mxGeometry height="640" width="210" x="260" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="service" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;" value="UserIngestService" vertex="1">
+          <mxGeometry height="640" width="170" x="560" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="repo" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;" value="UserRepository" vertex="1">
+          <mxGeometry height="640" width="170" x="820" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" edge="1" parent="1" style="endArrow=block;html=1;" value="POST /internal/ingest/users (user batch)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="114.5" y="142" as="sourcePoint" />
+            <mxPoint x="364.5" y="142" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" edge="1" parent="1" style="endArrow=block;html=1;" value="ingestUsers(request)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="364.5" y="197" as="sourcePoint" />
+            <mxPoint x="644.5" y="197" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m4" edge="1" parent="1" style="endArrow=block;html=1;" value="saveAll(users)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="644.5" y="228" as="sourcePoint" />
+            <mxPoint x="904.5" y="228" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m5" edge="1" parent="1" style="endArrow=block;html=1;dashed=1;" value="INSERT INTO users ...">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1010" y="260" />
+              <mxPoint x="1010" y="320" />
+            </Array>
+            <mxPoint x="904.5" y="260" as="sourcePoint" />
+            <mxPoint x="904.5" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m6" edge="1" parent="1" style="endArrow=open;html=1;" value="persist success">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="904.5" y="342" as="sourcePoint" />
+            <mxPoint x="644.5" y="342" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m7" edge="1" parent="1" style="endArrow=open;html=1;" value="IngestResponse(success)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="644.5" y="388" as="sourcePoint" />
+            <mxPoint x="364.5" y="388" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m8" edge="1" parent="1" style="endArrow=open;html=1;" value="200 OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="364.5" y="422" as="sourcePoint" />
+            <mxPoint x="114.5" y="422" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

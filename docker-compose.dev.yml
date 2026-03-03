@@ -1,0 +1,4 @@
+services:
+  backend:
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev # to allow seeding of users and transactions for demoing only

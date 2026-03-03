@@ -1,0 +1,80 @@
+spring:
+  application:
+    name: transaction-dispute-service
+  data:
+    redis:
+      # docker-compose sets SPRING_DATA_REDIS_HOST/PORT. Adding some timeouts
+      host: ${SPRING_DATA_REDIS_HOST:localhost}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+      connect-timeout: 2s
+      timeout: 2s
+
+  # We run Flyway manually per-module (separate history tables), so disable Boot's auto Flyway. It will be taken care of by FlywayModulesConfig in bootstrap
+  flyway:
+    enabled: false
+
+modules:
+  # transactions module
+  transactions:
+    security:
+      pan-hash-secret: "${CAPITEC_PANHASH_SECRET}"  # env var; 256bits/32char. Example: mydevhashsecrettokenis32charlong
+
+  # disputes module
+  disputes:
+    rules:
+      max-age-days: 60
+
+  # security module
+  security:
+    jwt:
+      issuer: "http://transaction-dispute-service"
+      secret: "${CAPITEC_JWT_SECRET:change-me-please-change-me-please-change-me}" # Example: mydevJWTsecrettokenis32charlong1
+
+logging:
+  level:
+    root: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+app:
+  idempotency:
+    enabled: true
+  postgres:
+    host: postgres # docker-compose.yml.services.postgres
+    port: 5432
+    connection-timeout: 3
+    statement-timeout: 5
+    database: txdispute
+    security:  # expect security module to have its own db un/pw
+      username: security_app
+      password: security_app_pw
+      schema: security
+    transactions:  # expect transactions module to have its own db un/pw
+      username: transactions_app
+      password: transactions_app_pw
+      schema: transactions
+    disputes: # expect disputes module to have its own db un/pw
+      username: disputes_app
+      password: disputes_app_pw
+      schema: disputes
+  app:
+    cache:
+      default-ttl: PT5M
+      ttl:
+        tx-by-id: PT2M
+        tx-search-user: PT30S
+        tx-search-support: PT30S
+        disputes-by-user: PT1M
+        disputes-support: PT30S
+        dispute-view-user: PT30S
+        dispute-view-support: PT30S
+        dispute-history-user: PT2M
+        dispute-history-support: PT2M

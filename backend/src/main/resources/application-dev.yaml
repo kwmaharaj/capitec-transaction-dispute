@@ -1,0 +1,155 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+logging:
+  level:
+    root: DEBUG
+    reactor.netty: DEBUG
+    za.co.capitec.transactiondispute: TRACE
+    org.flywaydb: DEBUG
+
+# Dev-only seed data for demos/reviewers.
+# - Passwords in this file are seed INPUTS only; they are hashed before being stored.
+# - In production, data should be ingested via the internal ingestion endpoints.
+app:
+  seed:
+    enabled: true
+    users:
+      - userId: 11111111-1111-1111-1111-111111111111
+        username: user1
+        password: user1-pass
+        roles: ["ROLE_USER"]
+      - userId: 22222222-2222-2222-2222-222222222222
+        username: user2
+        password: user2-pass
+        roles: ["ROLE_USER"]
+      - username: "support1"
+        password: "support1-pass"
+        user-id: "99999999-9999-9999-9999-999999999999"
+        roles: ["SUPPORT"]
+
+modules:
+  transactions:
+    # seeding some txs for the user just for testing/demo
+    transactions-to-seed:
+      - transactionId: 10000000-0000-0000-0000-000000000001
+        userId: 11111111-1111-1111-1111-111111111111
+        postedAt: 2026-02-23T08:00:00Z
+        amount: 120.50
+        currency: ZAR
+        merchant: Checkers
+        transactionStatus: POSTED
+        bin: "400000"
+        last4digits: "1111"
+        panHash: hash1
+        rrn: "rrn-10000001"
+
+      - transactionId: 10000000-0000-0000-0000-000000000002
+        userId: 11111111-1111-1111-1111-111111111111
+        postedAt: 2026-02-22T09:00:00Z
+        amount: 75.00
+        currency: ZAR
+        merchant: Woolworths
+        transactionStatus: POSTED
+        bin: "400000"
+        last4digits: "1111"
+        panHash: hash2
+        rrn: "rrn-10000002"
+
+      - transactionId: 10000000-0000-0000-0000-000000000003
+        userId: 11111111-1111-1111-1111-111111111111
+        postedAt: 2026-02-21T10:00:00Z
+        amount: 230.99
+        currency: ZAR
+        merchant: Pick n Pay
+        transactionStatus: POSTED
+        bin: "400000"
+        last4digits: "1111"
+        panHash: hash3
+        rrn: "rrn-10000003"
+
+      - transactionId: 10000000-0000-0000-0000-000000000004
+        userId: 11111111-1111-1111-1111-111111111111
+        postedAt: 2026-02-20T11:00:00Z
+        amount: 49.90
+        currency: ZAR
+        merchant: Clicks
+        transactionStatus: POSTED
+        bin: "400000"
+        last4digits: "1111"
+        panHash: hash4
+        rrn: "rrn-10000004"
+
+      - transactionId: 10000000-0000-0000-0000-000000000005
+        userId: 11111111-1111-1111-1111-111111111111
+        postedAt: 2026-02-19T12:00:00Z
+        amount: 310.00
+        currency: ZAR
+        merchant: Makro
+        transactionStatus: POSTED
+        bin: "400000"
+        last4digits: "1111"
+        panHash: hash5
+        rrn: "rrn-10000005"
+
+      - transactionId: 20000000-0000-0000-0000-000000000001
+        userId: 22222222-2222-2222-2222-222222222222
+        postedAt: 2026-02-18T08:30:00Z
+        amount: 88.00
+        currency: ZAR
+        merchant: Game
+        transactionStatus: POSTED
+        bin: "500000"
+        last4digits: "2222"
+        panHash: hash6
+        rrn: "rrn-20000001"
+
+      - transactionId: 20000000-0000-0000-0000-000000000002
+        userId: 22222222-2222-2222-2222-222222222222
+        postedAt: 2026-02-17T09:30:00Z
+        amount: 140.75
+        currency: ZAR
+        merchant: Dischem
+        transactionStatus: POSTED
+        bin: "500000"
+        last4digits: "2222"
+        panHash: hash7
+        rrn: "rrn-20000002"
+
+      - transactionId: 20000000-0000-0000-0000-000000000003
+        userId: 22222222-2222-2222-2222-222222222222
+        postedAt: 2026-02-16T10:30:00Z
+        amount: 199.99
+        currency: ZAR
+        merchant: Takealot
+        transactionStatus: POSTED
+        bin: "500000"
+        last4digits: "2222"
+        panHash: hash8
+        rrn: "rrn-20000003"
+
+      - transactionId: 20000000-0000-0000-0000-000000000004
+        userId: 22222222-2222-2222-2222-222222222222
+        postedAt: 2026-02-15T11:30:00Z
+        amount: 55.40
+        currency: ZAR
+        merchant: Spur
+        transactionStatus: POSTED
+        bin: "500000"
+        last4digits: "2222"
+        panHash: hash9
+        rrn: "rrn-20000004"
+
+      - transactionId: 20000000-0000-0000-0000-000000000005
+        userId: 22222222-2222-2222-2222-222222222222
+        postedAt: 2026-02-14T12:30:00Z
+        amount: 420.00
+        currency: ZAR
+        merchant: Builders
+        transactionStatus: POSTED
+        bin: "500000"
+        last4digits: "2222"
+        panHash: hash10
+        rrn: "rrn-20000005"

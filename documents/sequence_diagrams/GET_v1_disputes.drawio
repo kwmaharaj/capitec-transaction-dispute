@@ -1,0 +1,73 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram name="GET /v1/disputes" id="GET_v1_disputes">
+    <mxGraphModel dx="1626" dy="1052" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="client" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;" value="Client" vertex="1">
+          <mxGeometry height="600" width="120" x="50" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="controller" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;" value="DisputeController" vertex="1">
+          <mxGeometry height="600" width="150" x="250" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="service" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;" value="DisputeService" vertex="1">
+          <mxGeometry height="600" width="150" x="500" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="repo" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;" value="DisputeRepository" vertex="1">
+          <mxGeometry height="600" width="160" x="750" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" edge="1" parent="1" style="endArrow=block;html=1;" value="GET /v1/disputes">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="109.5" y="183" as="sourcePoint" />
+            <mxPoint x="324.5" y="183" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" edge="1" parent="1" style="endArrow=block;html=1;" value="findDisputes(filter, pageable)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="324.5" y="216" as="sourcePoint" />
+            <mxPoint x="574.5" y="216" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m3" edge="1" parent="1" style="endArrow=block;html=1;" value="queryDisputes(criteria)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="574.5" y="242" as="sourcePoint" />
+            <mxPoint x="829.5" y="242" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m5" edge="1" parent="1" style="endArrow=open;html=1;" value="List&lt;Dispute&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="829.5" y="386" as="sourcePoint" />
+            <mxPoint x="574.5" y="386" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m6" edge="1" parent="1" style="endArrow=open;html=1;" value="DisputeResponse">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="574.5" y="415" as="sourcePoint" />
+            <mxPoint x="324.5" y="415" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m7" edge="1" parent="1" style="endArrow=open;html=1;" value="200 OK + JSON response">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="324.5" y="451" as="sourcePoint" />
+            <mxPoint x="109.5" y="451" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4QalIZW7_boTWdnmcti8-1" edge="1" parent="1" style="endArrow=classic;html=1;rounded=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="910" y="280" />
+              <mxPoint x="910" y="360" />
+            </Array>
+            <mxPoint x="830" y="280" as="sourcePoint" />
+            <mxPoint x="830" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4QalIZW7_boTWdnmcti8-2" connectable="0" parent="4QalIZW7_boTWdnmcti8-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="SELECT * FROM disputes ..." vertex="1">
+          <mxGeometry relative="1" x="-0.0528" y="-5" as="geometry">
+            <mxPoint x="45" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

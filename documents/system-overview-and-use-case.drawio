@@ -1,0 +1,145 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2" pages="2">
+  <diagram id="99ffb467-e751-40cb-aff4-a80f38760f73" name="Systems Overview">
+    <mxGraphModel dx="2353" dy="1723" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" value="Customer / Support&lt;br/&gt;Browser" vertex="1">
+          <mxGeometry height="80" width="40" x="-40" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="React + Vite SPA&lt;br/&gt;(txdispute-portal)" vertex="1">
+          <mxGeometry height="120" width="220" x="140" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Spring Boot 4.0.3 API&lt;br/&gt;WebFlux + Security&lt;br/&gt;(transaction-dispute-service)" vertex="1">
+          <mxGeometry height="160" width="300" x="420" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Redis (reactive)&lt;br/&gt;• cache (TTL per use-case)&lt;br/&gt;• JWT revocation (jti)" vertex="1">
+          <mxGeometry height="110" width="260" x="120" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="PostgreSQL&lt;br/&gt;Schemas / users:&lt;br/&gt;• security (users, credentials)&lt;br/&gt;• transactions (transactions)&lt;br/&gt;• disputes (disputes, history)" vertex="1">
+          <mxGeometry height="150" width="260" x="920" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Internal ingestion&lt;br/&gt;/internal/ingest/*&lt;br/&gt;(dev seed + demos)" vertex="1">
+          <mxGeometry height="90" width="300" x="420" y="-110" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;dashed=1;" value="Docker Compose&lt;br/&gt;• backend&lt;br/&gt;• postgres&lt;br/&gt;• redis&lt;br/&gt;• frontend (dev)" vertex="1">
+          <mxGeometry height="100" width="220" x="140" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="9" edge="1" parent="1" source="2" style="endArrow=block;html=1;rounded=0;" target="3" value="HTTPS (browser)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="10" edge="1" parent="1" source="3" style="endArrow=block;html=1;rounded=0;" target="4" value="REST (JSON)&lt;br/&gt;Bearer JWT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11" edge="1" parent="1" source="4" style="endArrow=block;html=1;rounded=0;" target="5" value="Reactive Redis ops">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="555" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" edge="1" parent="1" source="4" style="endArrow=block;html=1;rounded=0;" target="6" value="R2DBC queries&lt;br/&gt;+ Flyway (JDBC) migrations">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="13" edge="1" parent="1" source="7" style="endArrow=block;html=1;rounded=0;dashed=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="4" value="POST seed data">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" edge="1" parent="1" source="8" style="endArrow=block;html=1;rounded=0;dashed=1;" target="3" value="dev server">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="15" edge="1" parent="1" source="8" style="endArrow=block;html=1;rounded=0;dashed=1;" target="4" value="containers">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" edge="1" parent="1" source="8" style="endArrow=block;html=1;rounded=0;dashed=1;" target="5" value="container">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17" edge="1" parent="1" source="8" style="endArrow=block;html=1;rounded=0;dashed=1;" target="6" value="container">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="de54ca9c-b68e-4fb2-a327-0ed3ab32a21e" name="Use Case Diagram">
+    <mxGraphModel dx="1382" dy="894" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="ROLE_USER" vertex="1">
+          <mxGeometry height="80" width="40" x="60" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="ROLE_SUPPORT" vertex="1">
+          <mxGeometry height="80" width="40" x="60" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;" value="&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Transaction Dispute System&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="1100" width="500" x="180" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" value="View transactions" vertex="1">
+          <mxGeometry height="60" width="220" x="320" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" value="View transaction detail" vertex="1">
+          <mxGeometry height="60" width="220" x="320" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" value="Create dispute on a transaction" vertex="1">
+          <mxGeometry height="60" width="220" x="320" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" value="View dispute history (own)" vertex="1">
+          <mxGeometry height="60" width="220" x="320" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" value="View dispute detail (own)" vertex="1">
+          <mxGeometry height="60" width="220" x="320" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e1d5e7;strokeColor=#9673a6;" value="View disputes (queue)" vertex="1">
+          <mxGeometry height="60" width="220" x="320" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e1d5e7;strokeColor=#9673a6;" value="View dispute detail" vertex="1">
+          <mxGeometry height="60" width="220" x="320" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e1d5e7;strokeColor=#9673a6;" value="View dispute history" vertex="1">
+          <mxGeometry height="60" width="220" x="320" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Change dispute status&lt;br/&gt;(OPEN → IN_PROGRESS → RESOLVED/REJECTED)" vertex="1">
+          <mxGeometry height="60" width="220" x="310" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e1d5e7;strokeColor=#9673a6;" value="View transactions (support)" vertex="1">
+          <mxGeometry height="60" width="220" x="310" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="15" edge="1" parent="1" source="2" style="endArrow=none;html=1;" target="5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" edge="1" parent="1" source="2" style="endArrow=none;html=1;" target="6" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17" edge="1" parent="1" source="2" style="endArrow=none;html=1;" target="7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="18" edge="1" parent="1" source="2" style="endArrow=none;html=1;" target="8" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="19" edge="1" parent="1" source="2" style="endArrow=none;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="9" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" edge="1" parent="1" source="3" style="endArrow=none;html=1;" target="10" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" edge="1" parent="1" source="3" style="endArrow=none;html=1;" target="11" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" edge="1" parent="1" source="3" style="endArrow=none;html=1;" target="12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" edge="1" parent="1" source="3" style="endArrow=none;html=1;" target="13" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" edge="1" parent="1" source="3" style="endArrow=none;html=1;" target="14" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
