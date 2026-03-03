@@ -26,7 +26,7 @@ Full‑stack system (frontend + backend) that allows customers to:
 - **React + Vite** for the UI
 - **Redis** for cache services
 - **Postres** Non-ransient data store. Schemes managed via Flyway
-- **Modular Monolith** Main modules are transactions, disputes and security
+- **Modular Monolith** Main modules are transactions, disputes and security. Enforced using Architests.
 - **Architest** used to ensure modularisation of project.
 - **Sonarqube** used for static code analysis
 - **OWASP** used for security analysis of dependencies.
