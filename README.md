@@ -15,6 +15,9 @@ Full‑stack system (frontend + backend) that allows customers to:
 - Dispute a transaction
 - View the historic timeline of a dispute
 
+## Documention
+- The documentations folder contains use cases, system overview and sequence diagrams.
+
 ## Tech Notes:
 - **Java 25**, **Spring Boot 4 (WebFlux)**, **R2DBC + Postgres** (fully reactive)
 - **JWT** auth (roles: `USER`, `SUPPORT`)
