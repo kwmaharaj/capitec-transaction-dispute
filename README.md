@@ -99,6 +99,9 @@ cd backend
   ```
   - Reports(html+json) will be produced in: capitec-transaction-dispute-root/backend/build/reports/dependency-check
 
+  ### Documentation
+  - capitec-transaction-dispute/documents contains use case, system overview and sequence diagrams.
+
 
 # Other useful Docker commands
  - ```docker compose down -v```
