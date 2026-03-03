@@ -26,12 +26,12 @@ services:
       retries: 20
 
   backend:
+    env_file:
+      - .env.example
     build:
       context: ./backend
       dockerfile: Dockerfile
     environment:
-      CAPITEC_PANHASH_SECRET: ${CAPITEC_PANHASH_SECRET}
-      CAPITEC_JWT_SECRET: ${CAPITEC_JWT_SECRET}
       SPRING_DATA_REDIS_HOST: redis
       SPRING_DATA_REDIS_PORT: 6379
     depends_on:
